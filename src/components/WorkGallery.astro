@@ -1,0 +1,31 @@
+---
+import { Image } from "astro:assets";
+
+import work1 from "../assets/work-1.png";
+import work2 from "../assets/work-2.png";
+import work3 from "../assets/work-3.png";
+import work4 from "../assets/work-4.png";
+import work5 from "../assets/work-5.png";
+
+const shots = [
+  { src: work1, alt: "Tree removal job on a rural property", tall: true },
+  { src: work2, alt: "Equipment-assisted tree work and rigging" },
+  { src: work3, alt: "Chipper and cleanup work" },
+  { src: work4, alt: "Arborist climbing and technical removal" },
+  { src: work5, alt: "Service area forest and landscape" },
+];
+---
+
+<section class="section section--center">
+  <div class="wrap">
+    <h2>Recent Work</h2>
+
+    <div class="work-grid">
+      {shots.map((s) => (
+        <figure class={`shot ${s.tall ? "shot--tall" : ""}`}>
+          <Image src={s.src} alt={s.alt} loading="lazy" />
+        </figure>
+      ))}
+    </div>
+  </div>
+</section>

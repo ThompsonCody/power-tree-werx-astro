@@ -1,0 +1,38 @@
+---
+const { phoneHref = "+12505177273" } = Astro.props;
+---
+
+<section class="hero" aria-label="Hero">
+  <div class="hero__bg" aria-hidden="true"></div>
+
+  <div class="wrap hero__inner">
+    <div class="hero__copy">
+      <h1>Tree Removal &amp; Arborist<br />Services</h1>
+      <p class="hero__sub">Shuswap / Adams Lake</p>
+
+      <div class="hero__actions">
+        <a class="btn btn--primary" href={`tel:${phoneHref}`}>Call / Text</a>
+        <a class="btn btn--secondary" href="#services">Our Services</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap hero__trust-wrap" aria-label="Trust signals">
+    <div class="hero__trust">
+      <div class="trust-card">
+        <span class="trust-card__icon" aria-hidden="true">📍</span>
+        <span>Local &amp; reliable</span>
+      </div>
+
+      <div class="trust-card">
+        <span class="trust-card__icon" aria-hidden="true">🛡️</span>
+        <span>Safety-focused</span>
+      </div>
+
+      <div class="trust-card">
+        <span class="trust-card__icon" aria-hidden="true">➕</span>
+        <span>Fully insured</span>
+      </div>
+    </div>
+  </div>
+</section>

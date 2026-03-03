@@ -1,0 +1,14 @@
+---
+const { phoneDisplay, phoneHref } = Astro.props;
+---
+
+<section id="contact" class="section section--center">
+  <div class="wrap">
+    <h2>Contact</h2>
+    <p class="muted">Call or text for an estimate.</p>
+
+    <a class="btn btn--big" href={`tel:${phoneHref}`}>{phoneDisplay}</a>
+
+    <p class="muted small">Text a photo for faster quote.</p>
+  </div>
+</section>

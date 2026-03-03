@@ -1,0 +1,25 @@
+---
+const services = [
+  { icon: "🌲", label: "Hazard Tree Removal" },
+  { icon: "🧗", label: "Climbing Arborist Work" },
+  { icon: "🪵", label: "Brush & Debris Removal" },
+  { icon: "⛈️", label: "Storm Cleanup" },
+  { icon: "🛻", label: "Lot & Access Clearing" },
+  { icon: "👁️", label: "View Enhancement" },
+];
+---
+
+<section id="services" class="section">
+  <div class="wrap">
+    <h2>Services</h2>
+
+    <div class="services-grid">
+      {services.map((s) => (
+        <article class="service card">
+          <div class="service__icon" aria-hidden="true">{s.icon}</div>
+          <div class="service__text">{s.label}</div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

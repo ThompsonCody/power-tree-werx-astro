@@ -1,0 +1,57 @@
+---
+const KEY = import.meta.env.PUBLIC_GOOGLE_MAPS_KEY;
+
+const locations = [
+  { name: "Anglemont", lat: 50.96497332679058, lng: -119.16380394889892 },
+  { name: "Scotch Creek", lat: 50.90413019266058, lng: -119.45839013359192 },
+  { name: "Celista", lat: 50.94297057291599, lng: -119.35022354891272 },
+  { name: "Chase", lat: 50.82674871789868, lng: -119.69907887187028 },
+  { name: "Adams Lake", lat: 50.94836631625549, lng: -119.66171161885669 },
+  { name: "Salmon Arm", lat: 50.70211661284123, lng: -119.27820009065822 },
+];
+---
+
+<section id="area" class="section">
+  <div class="wrap">
+    <h2 class="center">Service Area</h2>
+
+    <div class="area-card">
+      <div class="area-map">
+        <div id="map" aria-label="Service area map"></div>
+      </div>
+
+      <ul class="area-list">
+        {locations.map((l) => <li>{l.name}</li>)}
+      </ul>
+    </div>
+  </div>
+
+  <script is:inline define:vars={{ locations }}>
+    // Google expects a global callback
+    window.initMap = function initMap() {
+      const center = { lat: 50.85, lng: -119.57 };
+
+      const map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 9.5,
+        center,
+        disableDefaultUI: true,
+        zoomControl: true,
+      });
+
+      locations.forEach((loc) => {
+        new google.maps.Marker({
+          position: { lat: loc.lat, lng: loc.lng },
+          map,
+          title: loc.name,
+        });
+      });
+    };
+  </script>
+
+  {KEY && (
+    <script
+      async
+      src={`https://maps.googleapis.com/maps/api/js?key=${KEY}&callback=initMap`}
+    ></script>
+  )}
+</section>

@@ -1,0 +1,31 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Hero from "../components/Hero.astro";
+import Services from "../components/Services.astro";
+import WorkGallery from "../components/WorkGallery.astro";
+import ServiceArea from "../components/ServiceArea.astro";
+import Contact from "../components/Contact.astro";
+import Footer from "../components/Footer.astro";
+
+const phoneDisplay = "(250) 517-7273";
+const phoneHref = "+12505177273";
+---
+
+<BaseLayout
+  title="Power Tree Werx | Tree Removal & Arborist Services — Shuswap / Adams Lake"
+  description="Power Tree Werx — tree removal and arborist services in the Shuswap / Adams Lake region. Call or text for an estimate."
+>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <Header />
+
+  <main id="main">
+    <Hero phoneHref={phoneHref} />
+    <Services />
+    <WorkGallery />
+    <ServiceArea />
+    <Contact phoneDisplay={phoneDisplay} phoneHref={phoneHref} />
+    <Footer />
+  </main>
+</BaseLayout>
