@@ -20,12 +20,42 @@ const shots = [
   <div class="wrap">
     <h2>Recent Work</h2>
 
-    <div class="work-grid">
+    <!-- <div class="work-grid">
       {shots.map((s) => (
         <figure class={`shot ${s.tall ? "shot--tall" : ""}`}>
           <Image src={s.src} alt={s.alt} loading="lazy" />
         </figure>
       ))}
+    </div> -->
+    <div class="work-grid">
+      {shots.map((s, i) => (
+        <figure class={`shot ${s.tall ? "shot--tall" : ""}`}>
+          <button
+            class="lightbox-trigger"
+            data-index={i}
+            data-src={s.src.src}
+            data-alt={s.alt}
+          >
+            <Image src={s.src} alt={s.alt} loading="lazy" />
+          </button>
+        </figure>
+      ))}
     </div>
   </div>
+      <!-- LIGHTBOX -->
+    <div id="lightbox" class="lightbox">
+      <div class="lightbox-backdrop"></div>
+
+      <div class="lightbox-content">
+        <button class="lightbox-close">×</button>
+        <button class="lightbox-prev">‹</button>
+
+        <img id="lightbox-image" src="" alt="" />
+
+        <button class="lightbox-next">›</button>
+      </div>
+    </div>
+
+  </div>
+  <script type="module" src="../src/scripts/lightbox.js"></script>
 </section>
