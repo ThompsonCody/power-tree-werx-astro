@@ -1,4 +1,39 @@
 ---
+const locations = [
+  "Celista",
+  "White Lake",
+  "Sicamous",
+  "Chase",
+  "Canoe",
+  "Salmon Arm",
+];
+
+const mapSrc =
+  "https://www.google.com/maps?q=Shuswap%20Lake%2C%20BC&z=9&output=embed";
+---
+
+<section id="area" class="section">
+  <div class="wrap">
+    <h2 class="center">Service Area</h2>
+
+    <div class="area-card">
+      <div class="area-map">
+        <iframe
+          src={mapSrc}
+          title="Power Tree Werx service area map"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen
+        ></iframe>
+      </div>
+
+      <ul class="area-list">
+        {locations.map((name) => <li>{name}</li>)}
+      </ul>
+    </div>
+  </div>
+</section>
+<!-- ---
 const KEY = import.meta.env.PUBLIC_GOOGLE_MAPS_KEY;
 
 const locations = [
@@ -34,7 +69,7 @@ const locations = [
       const map = new google.maps.Map(document.getElementById("map"), {
         zoom: 9.5,
         center,
-        disableDefaultUI: true,
+        disableDefaultUI: true, 
         zoomControl: true,
       });
 
@@ -54,4 +89,4 @@ const locations = [
       src={`https://maps.googleapis.com/maps/api/js?key=${KEY}&callback=initMap`}
     ></script>
   )}
-</section>
+</section> -->
